@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todos }}
+            </li>
+        </ol>
+    </div>
+
+    <div id="app-2">
+        <span v-bind:title="message">
+            Rê chuột lên đây một vài giây để xem thuộc tính `title` được bind!
+        </span>
+    </div>
+
+    <div id="app-3">
+        <span v-if="seen">Thoắt ẩn thoắt hiện</span>
+    </div>
+
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            todos: []
+        },
+        created() {
+            fetch('https://apis.haravan.com/com/countries.json').
+                then(Response => response.json()).
+                then(json => {
+                    this.todos = json.todos
+                })
+        }
+    })
+
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message: 'Bạn đã mở trang này vào ' + new Date().toLocaleString()
+        }
+    })
+
+    var app3 = new Vue({
+        el: '#app-3',
+        data: {
+            seen: true
+        }
+    })
+</script>
+
+</html>
