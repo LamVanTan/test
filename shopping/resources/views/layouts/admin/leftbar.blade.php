@@ -18,7 +18,7 @@
                     <ul class="sub">
 						<li><a href="{{ route('admin.category.index') }}">index</a></li>
 						<li><a href="{{ route('admin.category.create') }}">create</a></li>
-                        <li><a href="grids.html">Grids</a></li>
+                        <li><a href="grids.html">Delete</a></li>
                     </ul>
                 </li>
                 
