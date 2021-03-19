@@ -13,10 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.home.index');
-});
 
-Route::get('/admin',function() {
-	return view('admin.layouts.master');
+
+
+
+
+
+
+Route::prefix('/admin')->group(function(){
+
+    Route::get('/home', function () {
+        return view('admin.home.index');
+    })->name('admin.home.index');
+
+    Route::prefix('/category')->group(function(){
+		Route::get('', function () {
+            return view('admin.category.index');
+        })->name('admin.category.index');
+
+        Route::get('/add', function () {
+            return view('admin.category.create');
+        })->name('admin.category.create');
+
+	});
 });
