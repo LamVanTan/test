@@ -117,7 +117,7 @@
     position: relative;
     font-weight: bold;
     color: inherit;
-        background: #ddede0;
+    background: #ddede0;
     box-shadow: 0 0 0 1px #c0dbc5;
     -webkit-transition: .25s;
     transition: .25s;
@@ -156,8 +156,7 @@
 }
 
 /* Non-Event calendar day number styles */
-.monthly-day-pick {
-}
+
 .monthly-day-pick > .monthly-day-number {
     line-height: 1em;
     font-size: 11px;

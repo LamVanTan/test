@@ -59,7 +59,7 @@
     } else if (options === 'set' && apiParams[arguments[1]]) {
       map['set' + arguments[1].charAt(0).toUpperCase() + arguments[1].substr(1)].apply(map, Array.prototype.slice.call(arguments, 2));
     } else if (typeof options === 'string' &&
-               typeof map[options] === 'function') {
+      typeof map[options] === 'function') {
       return map[options].apply(map, Array.prototype.slice.call(arguments, 1));
     } else {
       $.extend(defaultParams, options);
@@ -266,89 +266,89 @@
       }
 
       switch (letter) {
-      case 'm':
-        cx += coords[0];
-        cy += coords[1];
-        return 't' + coords.join(',');
-        break;
+        case 'm':
+          cx += coords[0];
+          cy += coords[1];
+          return 't' + coords.join(',');
+          break;
 
-      case 'M':
-        cx = coords[0];
-        cy = coords[1];
-        return 'm' + coords.join(',');
-        break;
+        case 'M':
+          cx = coords[0];
+          cy = coords[1];
+          return 'm' + coords.join(',');
+          break;
 
-      case 'l':
-        cx += coords[0];
-        cy += coords[1];
-        return 'r' + coords.join(',');
-        break;
+        case 'l':
+          cx += coords[0];
+          cy += coords[1];
+          return 'r' + coords.join(',');
+          break;
 
-      case 'L':
-        cx = coords[0];
-        cy = coords[1];
-        return 'l' + coords.join(',');
-        break;
+        case 'L':
+          cx = coords[0];
+          cy = coords[1];
+          return 'l' + coords.join(',');
+          break;
 
-      case 'h':
-        cx += coords[0];
-        return 'r' + coords[0] + ',0';
-        break;
+        case 'h':
+          cx += coords[0];
+          return 'r' + coords[0] + ',0';
+          break;
 
-      case 'H':
-        cx = coords[0];
-        return 'l' + cx + ',' + cy;
-        break;
+        case 'H':
+          cx = coords[0];
+          return 'l' + cx + ',' + cy;
+          break;
 
-      case 'v':
-        cy += coords[0];
-        return 'r0,' + coords[0];
-        break;
+        case 'v':
+          cy += coords[0];
+          return 'r0,' + coords[0];
+          break;
 
-      case 'V':
-        cy = coords[0];
-        return 'l' + cx + ',' + cy;
-        break;
+        case 'V':
+          cy = coords[0];
+          return 'l' + cx + ',' + cy;
+          break;
 
-      case 'c':
-        ctrlx = cx + coords[coords.length - 4];
-        ctrly = cy + coords[coords.length - 3];
-        cx += coords[coords.length - 2];
-        cy += coords[coords.length - 1];
-        return 'v' + coords.join(',');
-        break;
+        case 'c':
+          ctrlx = cx + coords[coords.length - 4];
+          ctrly = cy + coords[coords.length - 3];
+          cx += coords[coords.length - 2];
+          cy += coords[coords.length - 1];
+          return 'v' + coords.join(',');
+          break;
 
-      case 'C':
-        ctrlx = coords[coords.length - 4];
-        ctrly = coords[coords.length - 3];
-        cx = coords[coords.length - 2];
-        cy = coords[coords.length - 1];
-        return 'c' + coords.join(',');
-        break;
+        case 'C':
+          ctrlx = coords[coords.length - 4];
+          ctrly = coords[coords.length - 3];
+          cx = coords[coords.length - 2];
+          cy = coords[coords.length - 1];
+          return 'c' + coords.join(',');
+          break;
 
-      case 's':
-        coords.unshift(cy - ctrly);
-        coords.unshift(cx - ctrlx);
-        ctrlx = cx + coords[coords.length - 4];
-        ctrly = cy + coords[coords.length - 3];
-        cx += coords[coords.length - 2];
-        cy += coords[coords.length - 1];
-        return 'v' + coords.join(',');
-        break;
+        case 's':
+          coords.unshift(cy - ctrly);
+          coords.unshift(cx - ctrlx);
+          ctrlx = cx + coords[coords.length - 4];
+          ctrly = cy + coords[coords.length - 3];
+          cx += coords[coords.length - 2];
+          cy += coords[coords.length - 1];
+          return 'v' + coords.join(',');
+          break;
 
-      case 'S':
-        coords.unshift(cy + cy - ctrly);
-        coords.unshift(cx + cx - ctrlx);
-        ctrlx = coords[coords.length - 4];
-        ctrly = coords[coords.length - 3];
-        cx = coords[coords.length - 2];
-        cy = coords[coords.length - 1];
-        return 'c' + coords.join(',');
-        break;
+        case 'S':
+          coords.unshift(cy + cy - ctrly);
+          coords.unshift(cx + cx - ctrlx);
+          ctrlx = coords[coords.length - 4];
+          ctrly = coords[coords.length - 3];
+          cx = coords[coords.length - 2];
+          cy = coords[coords.length - 1];
+          return 'c' + coords.join(',');
+          break;
 
-      default:
-        return false;
-        break;
+        default:
+          return false;
+          break;
       }
 
       return '';
@@ -425,9 +425,9 @@
 
     jQuery(params.container).delegate(this.canvas.mode == 'svg' ? 'path' : 'shape', 'mouseover mouseout', function (e) {
       var path = e.target,
-      code = e.target.id.split('_').pop(),
-      labelShowEvent = $.Event('labelShow.jqvmap'),
-      regionMouseOverEvent = $.Event('regionMouseOver.jqvmap');
+        code = e.target.id.split('_').pop(),
+        labelShowEvent = $.Event('labelShow.jqvmap'),
+        regionMouseOverEvent = $.Event('regionMouseOver.jqvmap');
 
       if (e.type == 'mouseover') {
         jQuery(params.container).trigger(regionMouseOverEvent, [code, mapData.pathes[code].name]);
@@ -479,17 +479,17 @@
     if (params.showTooltip) {
       params.container.mousemove(function (e) {
         if (map.label.is(':visible')) {
-            var left = e.pageX - 15 - map.labelWidth;
-            var top = e.pageY - 15 - map.labelHeight;
-            
-            if(left < 0)
-               left = e.pageX + 15;
-            if(top < 0)
-                top = e.pageY + 15;
-            
-            map.label.css({
-                left: left,
-                top: top
+          var left = e.pageX - 15 - map.labelWidth;
+          var top = e.pageY - 15 - map.labelHeight;
+
+          if (left < 0)
+            left = e.pageX + 15;
+          if (top < 0)
+            top = e.pageY + 15;
+
+          map.label.css({
+            left: left,
+            top: top
           });
         }
       });
@@ -510,7 +510,7 @@
 
     if (params.selectedRegions) {
       if (params.selectedRegions instanceof Array) {
-        for(var k in params.selectedRegions) {
+        for (var k in params.selectedRegions) {
           this.select(params.selectedRegions[k].toLowerCase());
         }
       } else {
@@ -519,8 +519,8 @@
     }
 
     this.bindZoomButtons();
-    
-    if(params.pins) {
+
+    if (params.pins) {
       /*if(params.pinMode) {
           if(params.pinMode != "id" && params.pinMode != "content") {
               params.pinMode = "content";
@@ -569,8 +569,8 @@
 
     setValues: function (values) {
       var max = 0,
-      min = Number.MAX_VALUE,
-      val;
+        min = Number.MAX_VALUE,
+        val;
 
       for (var cc in values) {
         val = parseFloat(values[cc]);
@@ -638,7 +638,7 @@
 
     select: function (cc, path) {
       path = path || $('#' + this.getCountryId(cc))[0];
-      if(this.selectedRegions.indexOf(cc) < 0) {
+      if (this.selectedRegions.indexOf(cc) < 0) {
         if (this.multiSelectRegion) {
           this.selectedRegions.push(cc);
         } else {
@@ -656,7 +656,7 @@
 
     deselect: function (cc, path) {
       path = path || $('#' + this.getCountryId(cc))[0];
-      if(this.selectedRegions.indexOf(cc) >= 0) {
+      if (this.selectedRegions.indexOf(cc) >= 0) {
         this.selectedRegions.splice(this.selectedRegions.indexOf(cc), 1);
         // MUST BE after the change of selectedRegions
         // Otherwise, we might loop
@@ -666,7 +666,7 @@
       }
     },
 
-    isSelected: function(cc) {
+    isSelected: function (cc) {
       return this.selectedRegions.indexOf(cc) >= 0;
     },
 
@@ -784,14 +784,14 @@
 
     bindZoomButtons: function () {
       var map = this;
-      this.container.find('.jqvmap-zoomin').click(function(){
+      this.container.find('.jqvmap-zoomin').click(function () {
         map.zoomIn();
       });
-      this.container.find('.jqvmap-zoomout').click(function(){
+      this.container.find('.jqvmap-zoomout').click(function () {
         map.zoomOut();
       });
     },
-    
+
     zoomIn: function () {
       var map = this;
       var sliderDelta = (jQuery('#zoom').innerHeight() - 6 * 2 - 15 * 2 - 3 * 2 - 7 - 6) / (this.zoomMaxStep - this.zoomCurStep);
@@ -807,11 +807,11 @@
         map.zoomCurStep++;
 
         jQuery('#zoomSlider').css('top', parseInt(jQuery('#zoomSlider').css('top'), 10) - sliderDelta);
-        
+
         map.container.trigger("zoomIn");
       }
     },
-    
+
     zoomOut: function () {
       var map = this;
       var sliderDelta = (jQuery('#zoom').innerHeight() - 6 * 2 - 15 * 2 - 3 * 2 - 7 - 6) / (this.zoomMaxStep - this.zoomCurStep);
@@ -827,7 +827,7 @@
         map.zoomCurStep--;
 
         jQuery('#zoomSlider').css('top', parseInt(jQuery('#zoomSlider').css('top'), 10) + sliderDelta);
-        
+
         map.container.trigger("zoomOut");
       }
     },
@@ -842,58 +842,58 @@
     },
 
     getPinId: function (cc) {
-      return this.getCountryId(cc)+'_pin';
+      return this.getCountryId(cc) + '_pin';
     },
-    
-    placePins: function(pins, pinMode){
+
+    placePins: function (pins, pinMode) {
       var map = this;
 
-      if(!pinMode || (pinMode != "content" && pinMode != "id")) {
+      if (!pinMode || (pinMode != "content" && pinMode != "id")) {
         pinMode = "content";
       }
 
-      if(pinMode == "content") {//treat pin as content
-        jQuery.each(pins, function(index, pin){
-          if(jQuery('#'+map.getCountryId(index)).length == 0){
-              return;
+      if (pinMode == "content") {//treat pin as content
+        jQuery.each(pins, function (index, pin) {
+          if (jQuery('#' + map.getCountryId(index)).length == 0) {
+            return;
           }
           //mapData.pathes[code].name
           var pinIndex = map.getPinId(index);
-          if(jQuery('#'+pinIndex).length > 0){
-            jQuery('#'+pinIndex).remove();
+          if (jQuery('#' + pinIndex).length > 0) {
+            jQuery('#' + pinIndex).remove();
           }
-          map.container.append('<div id="' + pinIndex + '" for="'+index+'" class="jqvmap_pin" style="position:absolute">' + pin + '</div>');
+          map.container.append('<div id="' + pinIndex + '" for="' + index + '" class="jqvmap_pin" style="position:absolute">' + pin + '</div>');
         });
       } else { //treat pin as id of an html content
-        jQuery.each(pins, function(index, pin){
-          if(jQuery('#'+map.getCountryId(index)).length == 0){
-              return;
+        jQuery.each(pins, function (index, pin) {
+          if (jQuery('#' + map.getCountryId(index)).length == 0) {
+            return;
           }
           var pinIndex = map.getPinId(index);
-          if(jQuery('#'+pinIndex).length > 0){
-            jQuery('#'+pinIndex).remove();
+          if (jQuery('#' + pinIndex).length > 0) {
+            jQuery('#' + pinIndex).remove();
           }
-          map.container.append('<div id="' + pinIndex + '" for="'+index+'" class="jqvmap_pin" style="position:absolute"></div>');
-          jQuery('#'+pinIndex).append(jQuery('#'+pin));
+          map.container.append('<div id="' + pinIndex + '" for="' + index + '" class="jqvmap_pin" style="position:absolute"></div>');
+          jQuery('#' + pinIndex).append(jQuery('#' + pin));
         });
       }
 
       this.positionPins();
-      if(!this.pinHandlers){
+      if (!this.pinHandlers) {
         this.pinHandlers = true;//do only once
-        var positionFix = function(){
+        var positionFix = function () {
           map.positionPins();
         };
         this.container.bind('zoomIn', positionFix)
-        .bind('zoomOut', positionFix)
-        .bind('drag', positionFix);
+          .bind('zoomOut', positionFix)
+          .bind('drag', positionFix);
       }
     },
 
-    positionPins: function(){
+    positionPins: function () {
       var map = this;
       var pins = this.container.find('.jqvmap_pin');
-      jQuery.each(pins, function(index, pinObj){
+      jQuery.each(pins, function (index, pinObj) {
         pinObj = jQuery(pinObj);
         var countryId = map.getCountryId(pinObj.attr('for'));
         var countryObj = jQuery('#' + countryId);
@@ -904,36 +904,36 @@
         var scale = map.scale;
 
         var left = position.left + (bbox.width / 2) * scale - pinObj.width() / 2,
-        top = position.top + (bbox.height / 2) * scale - pinObj.height() / 2;
+          top = position.top + (bbox.height / 2) * scale - pinObj.height() / 2;
 
-        pinObj.css('left',left).css('top',top);
+        pinObj.css('left', left).css('top', top);
       });
-     },
+    },
 
-     getPin: function(cc){
-       var pinObj = jQuery('#'+this.getPinId(cc));
-       return pinObj.html();
-     },
+    getPin: function (cc) {
+      var pinObj = jQuery('#' + this.getPinId(cc));
+      return pinObj.html();
+    },
 
-     getPins: function(){
-       var pins = this.container.find('.jqvmap_pin');
-       var ret = new Object();
-       jQuery.each(pins, function(index, pinObj){
-         pinObj = jQuery(pinObj);
-         var cc = pinObj.attr('for');
-         var pinContent = pinObj.html();
-         eval("ret." + cc + "=pinContent");
-       });
-       return JSON.stringify(ret);
-     },
+    getPins: function () {
+      var pins = this.container.find('.jqvmap_pin');
+      var ret = new Object();
+      jQuery.each(pins, function (index, pinObj) {
+        pinObj = jQuery(pinObj);
+        var cc = pinObj.attr('for');
+        var pinContent = pinObj.html();
+        eval("ret." + cc + "=pinContent");
+      });
+      return JSON.stringify(ret);
+    },
 
-     removePin: function(cc) {
-       jQuery('#'+this.getPinId(cc)).remove();
-     },
+    removePin: function (cc) {
+      jQuery('#' + this.getPinId(cc)).remove();
+    },
 
-     removePins: function(){
-       this.container.find('.jqvmap_pin').remove();
-     }
+    removePins: function () {
+      this.container.find('.jqvmap_pin').remove();
+    }
   };
 
   WorldMap.xlink = "http://www.w3.org/1999/xlink";
@@ -1098,3 +1098,4 @@
   };
 
 })(jQuery);
+

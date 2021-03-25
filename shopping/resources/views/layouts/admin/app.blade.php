@@ -36,3 +36,4 @@
 		<script type="text/javascript" src="{{ asset('admin/js/custom.js')}}"></script>
     </body>
 </html>
+

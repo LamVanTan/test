@@ -19,6 +19,8 @@ const mix = require('laravel-mix');
 //file node_modules
 mix.copy('node_modules/@babel/parser/lib/index.js', 'public/admin/js/raphael-min.js');
 mix.copy('node_modules/highcharts/highcharts.js', 'public/admin/js/highcharts.js');
+mix.copy('node_modules/font-awesome/css/font-awesome.css', 'public/admin/css');
+
 
 //Admin
 mix.copyDirectory('resources/assets/admin/images', 'public/admin/images');
@@ -26,11 +28,9 @@ mix.copyDirectory('resources/assets/admin/fonts', 'public/admin/fonts');
 
 mix.js('resources/assets/admin/customs/js/custom.js', 'public/admin/js');
 
-mix.copy('resources/assets/admin/css/font-awesome.css', 'public/admin/css');
-mix.copy('resources/assets/admin/css/font_custom.css', 'public/admin/css');
 
 mix.styles([
-  'resources/assets/admin/css/bootstrap.min.css', 
+  'node_modules/bootstrap/dist/css/bootstrap.min.css',
   'resources/assets/admin/css/style-responsive.css',
   'resources/assets/admin/css/style.css',
   'resources/assets/admin/css/font.css',
@@ -40,13 +40,14 @@ mix.styles([
 
 mix.js([
     'resources/assets/admin/js/jquery2.0.3.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'resources/assets/admin/js/morris.js',
-    'resources/assets/admin/js/bootstrap.js',
     'resources/assets/admin/js/monthly.js',
     'resources/assets/admin/js/jquery.dcjqaccordion.2.7.js',
     'resources/assets/admin/js/scripts.js',
     'resources/assets/admin/js/jquery.slimscroll.js',
     'resources/assets/admin/js/jquery.nicescroll.js',
     'resources/assets/admin/js/jquery.scrollTo.js',
-], 'public/admin/js/app.js')
+], 'public/admin/js/app.js');
+
 

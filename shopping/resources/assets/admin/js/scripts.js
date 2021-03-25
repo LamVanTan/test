@@ -71,14 +71,14 @@
             });
 
             $('.pc-epie-chart').easyPieChart({
-                onStep: function(from, to, percent) {
+                onStep: function (from, to, percent) {
                     $(this.el).find('.percent').text(Math.round(percent));
                 },
                 barColor: "#5bc6f0",
                 lineWidth: 3,
-                size:50,
+                size: 50,
                 trackColor: "#32323a",
-                scaleColor:"#cccccc"
+                scaleColor: "#cccccc"
 
             });
 
@@ -266,7 +266,8 @@
                 el.slideUp(200);
             } else {
                 $(this).removeClass("fa-chevron-up").addClass("fa-chevron-down");
-                el.slideDown(200); }
+                el.slideDown(200);
+            }
         });
 
 

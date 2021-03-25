@@ -10,10 +10,10 @@
 	font-family: sans-serif, Verdana;
 	font-size: smaller;
 	padding: 3px;
-  pointer-events:none;
+    pointer-events:none;
 }
 .jqvmap-pin {
-  pointer-events:none;
+    pointer-events:none;
 }
 .jqvmap-zoomin, .jqvmap-zoomout
 {
@@ -41,10 +41,11 @@
 }
 .jqvmap-region
 {
-  cursor: pointer;
+    cursor: pointer;
 }
 .jqvmap-ajax_response
 {
-  width: 100%;
-  height: 500px;
+    width: 100%;
+    height: 500px;
 }
+
